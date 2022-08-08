@@ -2,14 +2,19 @@
 
 
 #include "BasePlayerController.h"
-#include "BaseCharacter.Generated.h"
+
 #include "GameFramework/Character.h"
 #include "Animation/AnimInstance.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "TimerManager.h"
 #include "Math/UnrealMathUtility.h"
 
+//includes custome
+#include "Characters/BaseCharacter.h"
 
+
+// ============================ Base Functionality for Player Controller =========================== //
+// ================================================================================================= //
 
 ABasePlayerController::ABasePlayerController()
 	:bCrouching(false)
@@ -35,7 +40,6 @@ void ABasePlayerController::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 
 }
-
 
 void ABasePlayerController::SetupInputComponent()
 {
@@ -225,6 +229,7 @@ void ABasePlayerController::RequestSprintRealease()
 	//GEngine->AddOnScreenDebugMessage(16, 10.0f, FColor::White, RotationMesaggesss);
 }
 
+
 // ================================ For the Stamina System for Sprinting =========================== //
 // ================================================================================================= //
 
@@ -293,3 +298,17 @@ void ABasePlayerController::DegenerateStamina()
 	}
 }
 
+
+// ================================ For the Interaction System With World ========================== //
+// ================================================================================================= //
+void ABasePlayerController::RequestInteract()
+{
+	if (ABaseCharacter* FirstCharacter = Cast<ABaseCharacter>(GetCharacter()))
+	{
+		FirstCharacter->StartInteraction(); // Interaction Event
+	}
+}
+
+void ABasePlayerController::RequestEndInteract()
+{
+}

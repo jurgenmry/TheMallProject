@@ -26,7 +26,16 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+private:
 
+	int8 OverlappedItemCount;  //For the Amount of Items to overlapp events 
+	bool bShouldTraceForItems; //Tracing Items for Overlaping Events
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Items", meta = (AllowPrivateAccess = "true"))
+	class AActor* TraceItemLastFrame; //Item We hit last frame
+
+
+public:
 
 // =============================================================================================== //
 //======================== Declaration of components for the character =========================== //
@@ -40,5 +49,23 @@ class UCameraComponent* MyCamera;
 FORCEINLINE UCameraComponent* GetMyCamera() const { return MyCamera; };
 FORCEINLINE USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 
+
+
+FORCEINLINE int8 ReturnIncrementOverlappedItemCount() const { return OverlappedItemCount; }
+void IncrementOverlappedItemCount(int8 Amount); 
+
+
+// =============================================================================================== //
+// ============================ Overlap Events with World/ Items ================================= //
+
+bool TraceUnderTheCrosshairs(FHitResult& OutHitResult); 
+void TraceOverlap(); 
+
+
+// =============================================================================================== //
+// ============================ For interaction with World/Items ================================= //
+
+void StartInteraction(); 
+void EndInteraction(); 
 
 };

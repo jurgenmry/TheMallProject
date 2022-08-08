@@ -103,4 +103,10 @@ public:
 	
 	FORCEINLINE bool GetbCrouching() const { return bCrouching;}
 	FORCEINLINE bool GetbIsSprinting() const { return bIsSprinting; }
+
+
+	// ================================= for Character World interactions ================================= //
+
+	void RequestInteract(); 
+	void RequestEndInteract(); 
 };
