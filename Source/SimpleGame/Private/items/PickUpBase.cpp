@@ -2,6 +2,7 @@
 
 
 #include "items/PickUpBase.h"
+#include "Components/WidgetComponent.h"
 
 APickUpBase::APickUpBase()
 	:isStackable(false)
@@ -10,4 +11,30 @@ APickUpBase::APickUpBase()
 	, MaxStack(200)
 {
 
+}
+
+void APickUpBase::OnInteract_Implementation(AActor* caller)
+{
+	if (GEngine)
+	{
+		FString Message = TEXT("Destroy_Object");
+		GEngine->AddOnScreenDebugMessage(1,5.0f, FColor::Red, Message,1);
+	}
+	Destroy();
+}
+
+void APickUpBase::OnActorStartFocus_Implementation()
+{
+	if (APickUpBase::GetPickupWidget())
+	{
+		APickUpBase::GetPickupWidget()->SetVisibility(true);
+	}
+}
+
+void APickUpBase::OnActorEndFocus_Implementation()
+{
+	if (APickUpBase::GetPickupWidget())
+	{
+		APickUpBase::GetPickupWidget()->SetVisibility(false);
+	}
 }

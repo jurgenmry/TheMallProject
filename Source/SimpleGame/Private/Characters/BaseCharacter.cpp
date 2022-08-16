@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ // Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Characters/BaseCharacter.h"
@@ -142,7 +142,7 @@ void ABaseCharacter::TraceOverlap()
 					IInteractInterface* Interface = Cast<IInteractInterface>(TraceItemLastFrame);
 					if (Interface)
 					{
-						Interface->Execute_OnActorEndFocus(TraceItemLastFrame);  //Set Visibility (true)
+						Interface->Execute_OnActorEndFocus(TraceItemLastFrame); // Set the visibility of the item
 					}
 				}
 

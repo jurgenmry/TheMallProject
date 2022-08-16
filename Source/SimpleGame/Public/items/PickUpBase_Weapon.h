@@ -14,13 +14,15 @@ class SIMPLEGAME_API APickUpBase_Weapon : public APickUpBase
 {
 	GENERATED_BODY()
 
-	//Damage
-	//Ammo
-	//Animations 
-	//Type of Weapon
-	//Rate Of Fire
-	//Button Binding
-	//Zoom or not
-	//Size of Magazine
-	// attach to the body
+		//Damage
+		//Ammo
+		//Animations 
+		//Type of Weapon
+		//Rate Of Fire
+		//Button Binding
+		//Zoom or not
+		//Size of Magazine
+		// attach to the body
+
+		
 };

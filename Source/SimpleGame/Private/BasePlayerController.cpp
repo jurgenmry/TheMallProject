@@ -74,6 +74,10 @@ void ABasePlayerController::SetupInputComponent()
 		//Sprinting
 		InputComponent->BindAction("Sprint", EInputEvent::IE_Pressed, this, &ABasePlayerController::RequestSprintPress);
 		InputComponent->BindAction("Sprint", EInputEvent::IE_Released, this, &ABasePlayerController::RequestSprintRealease);
+
+		//interact Objects
+		InputComponent->BindAction("Interact", EInputEvent::IE_Pressed, this, &ABasePlayerController::RequestInteract);
+
 	}
 }
 
@@ -310,5 +314,5 @@ void ABasePlayerController::RequestInteract()
 }
 
 void ABasePlayerController::RequestEndInteract()
-{
+{ 
 }
